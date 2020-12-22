@@ -1,0 +1,44 @@
+.box-shadow {
+    box-shadow: 0 0 20px #8c8c8c;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.scroll {
+    overflow-y: scroll;
+    max-width: 500px;
+    max-height: 300px;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 0;
+}
+
+.text-btn {
+    color: #ccc;
+}
+
+.text-btn:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.block-size {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.borders {
+    outline: none;
+    display: block;
+    width: 100%;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid 1px #dadada;
+}
+
+.border-footer {
+    border-top: #dadada 1px solid;
+}
+
