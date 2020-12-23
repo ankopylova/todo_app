@@ -4,6 +4,7 @@ import {
     COMPLETE_TODO,
     DELETE_ALL_COMPLETED,
     COMPLETE_ALL,
+    CHANGE_FILTERS,
 } from './constants'
 
 const initialState = {
@@ -14,7 +15,6 @@ const initialState = {
 function reducer(state = initialState, action) {
     switch (action.type) {
         case ADD_TODO_ITEM: {
-            console.log({...state});
             return {
                 ...state,
                 list: [...state.list, action.payload]
@@ -42,6 +42,12 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 list: [...action.payload]
+            }
+        }
+        case CHANGE_FILTERS: {
+            return {
+                ...state,
+                activeFilter: action.filter,
             }
         }
         default:

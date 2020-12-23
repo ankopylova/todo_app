@@ -5,13 +5,10 @@ import {faTrashAlt, faCheck} from "@fortawesome/free-solid-svg-icons";
 import cx from 'classnames';
 import Checkbox from "react-custom-checkbox";
 
-
 const TodoItem = ({text, completed, onChange, onRemove}) => {
     return (
         <div className="border-list block-size">
-            <div className="col" style={{
-                padding: 0,
-            }}>
+            <div className="col">
                 <Checkbox
                     borderWidth={1}
                     checked={completed}
@@ -20,9 +17,6 @@ const TodoItem = ({text, completed, onChange, onRemove}) => {
                     borderRadius={15}
                     borderColor="#cccccc"
                     label={text}
-                    labelStyle={
-                        {margin: 10}
-                    }
                     labelClassName={cx('text', completed && 'text todo-item-checked')}
                 />
             </div>
@@ -34,7 +28,6 @@ const TodoItem = ({text, completed, onChange, onRemove}) => {
                     <FontAwesomeIcon icon={faTrashAlt}/>
                 </div>
             </div>
-
         </div>
     );
 };
