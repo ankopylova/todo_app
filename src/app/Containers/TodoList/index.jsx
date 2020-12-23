@@ -1,18 +1,10 @@
 import React from 'react';
-import TodoItem from "../../Components/TodoItem/TodoItem";
-import RadioBadge from "../../Components/RadioBadge/RadioBadge";
-import {filters} from "../../Constants/Filters";
-import "./TodoList.css";
+import TodoItem from '../../Components/TodoItem';
+import RadioBadge from '../../Components/RadioBadge/index';
+import {index} from '../../Constants';
+import './TodoList.css;'
 import {connect} from 'react-redux';
-import {
-    addTodoItem,
-    completeAll,
-    completeTodo,
-    deleteAllCompleted,
-    deleteTodo,
-    changeFilter
-} from "../../Reducers/actions";
-import cx from "classnames";
+import * as actions from '../../Reducers/actions';
 
 class TodoList extends React.Component {
 
@@ -21,50 +13,24 @@ class TodoList extends React.Component {
         this.state = {
             value: "",
         }
-        this.onCheck = this.onCheck.bind(this)
-        this.onAdd = this.onAdd.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-        this.onRemove = this.onRemove.bind(this)
+        this.handleChangeTodoText = this.handleChangeTodoText.bind(this)
         this.filteredList = this.filteredList.bind(this)
         this.checkedListLength = this.checkedListLength.bind(this)
-        this.deleteCompleted = this.deleteCompleted.bind(this)
-        this.completeAll = this.completeAll.bind(this)
-        this.onKeyPress = this.onKeyPress.bind(this)
-    }
-
-    onCheck(id) {
-        this.props.completeTodo(id)
-    }
-
-    onAdd() {
-        this.props.addTodoItem(this.state.value)
-    }
-
-    completeAll() {
-        this.props.completeAll()
-    }
-
-    deleteCompleted() {
-        this.props.deleteAllCompleted()
+        this.addNewTodo = this.addNewTodo.bind(this)
     }
 
     checkedListLength() {
         return this.props.list.filter(el => el.completed === true).length;
     }
 
-    onRemove(id) {
-        this.props.deleteTodo(id)
-    }
-
-    handleChange(event) {
+    handleChangeTodoText(event) {
         this.setState({value: event.target.value});
     }
 
-    onKeyPress(event) {
-        if (event.which === 13) {
-            this.onAdd()
-            this.setState({value: ""})
-        }
+    addNewTodo(event) {
+        if (!(event.which === 13)) return;
+        this.props.addTodoItem(this.state.value)
+        this.setState({value: ""})
     }
 
     filteredList() {
@@ -85,19 +51,19 @@ class TodoList extends React.Component {
                 <div className="box-shadow">
                     <div className="d-flex container p-3 block-size">
                         <input placeholder="Enter your task name here"
-                               type='text'
+                               type="text"
                                value={this.state.value}
-                               className="borders block-size p-3 mx-auto "
-                               onChange={this.handleChange}
-                               onKeyPress={(event) => this.onKeyPress(event)}/>
+                               className="borders block-size p-3 mx-auto"
+                               onChange={this.handleChangeTodoText}
+                               onKeyPress={this.addNewTodo}/>
                     </div>
                     <section className="scroll">
                         <div className="block-size">
                             {this.filteredList().map(el =>
                                 <TodoItem text={el.text}
-                                          completed={el.completed}
-                                          onChange={() => this.onCheck(el.id)}
-                                          onRemove={() => this.onRemove(el.id)}
+                                       completed={el.completed}
+                                       onChange={() => this.props.completeTodo(el.id)}
+                                       onRemove={() => this.props.deleteTodo(el.id)}
                                 />
                             )}
                         </div>
@@ -105,17 +71,17 @@ class TodoList extends React.Component {
                     {
                         !!this.props.list.length &&
                         <div className="d-flex container p-3 block-size border-footer">
-                            <div onClick={() => this.completeAll()} className="col-3 btn-sm text-btn">
+                            <div onClick={() => this.props.completeAllTodos()} className="col-3 btn-sm text-btn">
                                 {this.props.list.length - this.checkedListLength()} tasks left
                             </div>
                             <RadioBadge
-                                onChange={(activeFilter) => this.props.changeFilter(activeFilter)}
-                                filters={filters}
+                                onChange={(activeFilter) => this.props.changeListFilter(activeFilter)}
+                                filters={index}
                                 selected={this.props.activeFilter}/>
-                            <div onClick={this.deleteCompleted}
+                            <div onClick={() => this.props.deleteAllCompletedTodos()}
                                  className="d-flex col-4 btn-sm justify-content-end text-btn block-size">
                                 <span
-                                    className={cx(!this.checkedListLength() && "invisible", "visible")}>Clear complete</span>
+                                    className={!this.checkedListLength() ? "invisible" : "visible"}>Clear complete</span>
                             </div>
                         </div>
                     }
@@ -135,12 +101,12 @@ const mapStateToProps = function (state) {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addTodoItem: (text) => dispatch(addTodoItem(text)),
-        deleteTodo: (id) => dispatch(deleteTodo(id)),
-        completeTodo: (id) => dispatch(completeTodo(id)),
-        deleteAllCompleted: () => dispatch(deleteAllCompleted()),
-        completeAll: () => dispatch(completeAll()),
-        changeFilter: (filter) => dispatch(changeFilter(filter))
+        addTodoItem: (text) => dispatch(actions.addTodoItem(text)),
+        deleteTodo: (id) => dispatch(actions.deleteTodo(id)),
+        completeTodo: (id) => dispatch(actions.completeTodo(id)),
+        deleteAllCompletedTodos: () => dispatch(actions.deleteAllCompletedTodos()),
+        completeAllTodos: () => dispatch(actions.completeAllTodos()),
+        changeListFilter: (filter) => dispatch(actions.changeListFilter(filter))
     }
 }
 

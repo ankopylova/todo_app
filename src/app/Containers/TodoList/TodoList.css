@@ -15,11 +15,11 @@
 }
 
 .text-btn {
-    color: #ccc;
+    color: #cccccc;
 }
 
 .text-btn:hover {
-    color: black;
+    color: #000000;
     cursor: pointer;
 }
 

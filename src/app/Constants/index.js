@@ -1,0 +1,1 @@
+export const index = ["All", "ToDo", "Completed"]

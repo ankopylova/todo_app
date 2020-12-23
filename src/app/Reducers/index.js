@@ -1,11 +1,4 @@
-import {
-    ADD_TODO_ITEM,
-    DELETE_TODO,
-    COMPLETE_TODO,
-    DELETE_ALL_COMPLETED,
-    COMPLETE_ALL,
-    CHANGE_FILTERS,
-} from './constants'
+import * as constants from './constants'
 
 const initialState = {
     list: [],
@@ -14,40 +7,40 @@ const initialState = {
 
 function reducer(state = initialState, action) {
     switch (action.type) {
-        case ADD_TODO_ITEM: {
+        case constants.ADD_TODO_ITEM: {
             return {
                 ...state,
                 list: [...state.list, action.payload]
             }
         }
-        case DELETE_TODO: {
+        case constants.DELETE_TODO: {
             return {
                 ...state,
                 list: [...action.payload]
             }
         }
-        case COMPLETE_TODO: {
+        case constants.COMPLETE_TODO: {
             return {
                 ...state,
                 list: [...action.payload]
             }
         }
-        case DELETE_ALL_COMPLETED: {
+        case constants.DELETE_ALL_COMPLETED: {
             return {
                 ...state,
                 list: [...action.payload]
             }
         }
-        case COMPLETE_ALL: {
+        case constants.COMPLETE_ALL: {
             return {
                 ...state,
                 list: [...action.payload]
             }
         }
-        case CHANGE_FILTERS: {
+        case constants.CHANGE_FILTERS: {
             return {
                 ...state,
-                activeFilter: action.filter,
+                activeFilter: action.payload,
             }
         }
         default:

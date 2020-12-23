@@ -1,9 +1,9 @@
 import React from 'react';
-import './TodoItem.css';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTrashAlt, faCheck} from "@fortawesome/free-solid-svg-icons";
+import './style.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTrashAlt, faCheck} from '@fortawesome/free-solid-svg-icons';
 import cx from 'classnames';
-import Checkbox from "react-custom-checkbox";
+import Checkbox from 'react-custom-checkbox';
 
 const TodoItem = ({text, completed, onChange, onRemove}) => {
     return (
@@ -17,7 +17,7 @@ const TodoItem = ({text, completed, onChange, onRemove}) => {
                     borderRadius={15}
                     borderColor="#cccccc"
                     label={text}
-                    labelClassName={cx('text', completed && 'text todo-item-checked')}
+                    labelClassName={cx("text", completed && "text todo-item-checked")}
                 />
             </div>
             <div className="col">

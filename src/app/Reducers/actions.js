@@ -1,8 +1,7 @@
 import * as types from './constants'
 
 export const addTodoItem = text => (dispatch, getState) => {
-    const inxArr = getState().list.map(el => el.id);
-    const newId = inxArr.length ? Math.max(...inxArr) + 1 : 1;
+    const newId = getState().list.map(el => el.id).length ? Math.max(...getState().list.map(el => el.id)) + 1 : 1;
     return dispatch({
         type: types.ADD_TODO_ITEM,
         payload: {
@@ -29,14 +28,14 @@ export const completeTodo = id => (dispatch, getState) => {
     })
 }
 
-export const deleteAllCompleted = () => (dispatch, getState) => {
+export const deleteAllCompletedTodos = () => (dispatch, getState) => {
     return dispatch({
         type: types.DELETE_ALL_COMPLETED,
         payload: getState().list.filter(el => el.completed !== true)
     })
 }
 
-export const completeAll = () => (dispatch, getState) => {
+export const completeAllTodos = () => (dispatch, getState) => {
     return dispatch({
         type: types.COMPLETE_ALL,
         payload: getState().list.map(el => !el.completed ? {...el, completed: true} : el)
@@ -44,9 +43,9 @@ export const completeAll = () => (dispatch, getState) => {
 }
 
 
-export const changeFilter = filter => (dispatch) => {
+export const changeListFilter = filter => (dispatch) => {
     return dispatch({
         type: types.CHANGE_FILTERS,
-        filter
+        payload: filter,
     })
 }

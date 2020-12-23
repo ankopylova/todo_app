@@ -9,11 +9,11 @@
 }
 
 .trash {
-    color: rgba(204, 204, 204, 0.67);
+    color: #8c8c8c;
 }
 
 .trash:hover {
-    color: black;
+    color: #000000;
 }
 
 .checkbox {
@@ -25,8 +25,7 @@
     align-items: center;
     display: flex;
     position: relative;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 15px 15px;
     margin-top: 5px;
     border-bottom: solid 1px #dadada;
 }
@@ -35,8 +34,7 @@
     align-items: center;
     display: flex;
     position: relative;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 15px 15px;
     margin-bottom: -1px;
     border: none;
     border-radius: 0;
