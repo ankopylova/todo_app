@@ -1,43 +1,43 @@
 .todo-item-checked {
-  text-decoration: line-through;
-  color: #8c8c8c;
+    text-decoration: line-through;
+    color: #8c8c8c;
 }
 
 .text {
-  word-wrap: break-word;
-  margin: 10px;
+    word-wrap: break-word;
+    margin: 10px;
 }
 
 .trash {
-  color: rgba(204,204,204,0.67);
+    color: rgba(204, 204, 204, 0.67);
 }
 
 .trash:hover {
-  color: black;
+    color: black;
 }
 
 .checkbox {
-height: 30px;
-width: 30px;
+    height: 30px;
+    width: 30px;
 }
 
 .border-list {
-  align-items: center;
-  display: flex;
-  position: relative;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-top: 5px;
-  border-bottom: solid 1px #dadada;
+    align-items: center;
+    display: flex;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 5px;
+    border-bottom: solid 1px #dadada;
 }
 
 .border-list:last-child {
-  align-items: center;
-  display: flex;
-  position: relative;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: -1px;
-  border: none;
-  border-radius: 0;
+    align-items: center;
+    display: flex;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: -1px;
+    border: none;
+    border-radius: 0;
 }

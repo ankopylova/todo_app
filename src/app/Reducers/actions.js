@@ -13,14 +13,14 @@ export const addTodoItem = text => (dispatch, getState) => {
     })
 }
 
-export const deleteTodo = id => (dispatch, getState)  => {
+export const deleteTodo = id => (dispatch, getState) => {
     return dispatch({
         type: types.DELETE_TODO,
         payload: getState().list.filter(el => el.id !== id)
     })
 };
 
-export const completeTodo = id => (dispatch, getState)  => {
+export const completeTodo = id => (dispatch, getState) => {
     return dispatch({
         type: types.COMPLETE_TODO,
         payload: getState().list.map(el =>
@@ -29,14 +29,14 @@ export const completeTodo = id => (dispatch, getState)  => {
     })
 }
 
-export const deleteAllCompleted = () => (dispatch, getState)  => {
+export const deleteAllCompleted = () => (dispatch, getState) => {
     return dispatch({
         type: types.DELETE_ALL_COMPLETED,
         payload: getState().list.filter(el => el.completed !== true)
     })
 }
 
-export const completeAll = () => (dispatch, getState)  => {
+export const completeAll = () => (dispatch, getState) => {
     return dispatch({
         type: types.COMPLETE_ALL,
         payload: getState().list.map(el => !el.completed ? {...el, completed: true} : el)
@@ -44,7 +44,7 @@ export const completeAll = () => (dispatch, getState)  => {
 }
 
 
-export const changeFilter = filter => (dispatch)  => {
+export const changeFilter = filter => (dispatch) => {
     return dispatch({
         type: types.CHANGE_FILTERS,
         filter

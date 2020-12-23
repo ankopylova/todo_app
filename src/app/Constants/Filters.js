@@ -1,1 +1,1 @@
-export const filters = ["All","ToDo" ,"Completed" ]
+export const filters = ["All", "ToDo", "Completed"]

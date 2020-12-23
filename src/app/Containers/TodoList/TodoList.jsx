@@ -67,7 +67,6 @@ class TodoList extends React.Component {
         }
     }
 
-
     filteredList() {
         switch (this.props.activeFilter) {
             case "Completed":
