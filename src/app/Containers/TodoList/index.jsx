@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoItem from '../../Components/TodoItem';
-import RadioBadge from '../../Components/RadioBadge/index';
+import RadioBadge from '../../Components/RadioBadge';
 import {index} from '../../Constants';
 import './style.css'
 import {connect} from 'react-redux';
@@ -28,7 +28,7 @@ class TodoList extends React.Component {
     }
 
     addNewTodo(event) {
-        if (!(event.which === 13)) return;
+        if (event.which !== 13) return;
         this.props.addTodoItem(this.state.value)
         this.setState({value: ""})
     }
