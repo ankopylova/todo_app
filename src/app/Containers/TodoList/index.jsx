@@ -2,7 +2,7 @@ import React from 'react';
 import TodoItem from '../../Components/TodoItem';
 import RadioBadge from '../../Components/RadioBadge/index';
 import {index} from '../../Constants';
-import './style.css;'
+import './style.css'
 import {connect} from 'react-redux';
 import * as actions from '../../Reducers/actions';
 
