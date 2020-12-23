@@ -3,18 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="93cc2874-fb03-4c5a-9996-117f6d8fdf3e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Components/RadioBadge/RadioBadge.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Components/RadioBadge/RadioBadge.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Components/TodoItem/TodoItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Components/TodoItem/TodoItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Containers/TodoList/TodoList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Containers/TodoList/TodoList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Reducers/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Reducers/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Reducers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Reducers/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/constants/todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Constants/Filters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/utils/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Utils/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,11 +77,23 @@
       <workItem from="1607930072908" duration="104800000" />
       <workItem from="1608535250220" duration="47471000" />
       <workItem from="1608648295470" duration="22000" />
-      <workItem from="1608648479291" duration="19105000" />
+      <workItem from="1608648479291" duration="22141000" />
     </task>
+    <task id="LOCAL-00001" summary="v2.0">
+      <created>1608727048558</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608727048558</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="v2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.0" />
   </component>
 </project>

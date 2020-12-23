@@ -134,7 +134,7 @@ const mapStateToProps = function (state) {
     }
 }
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = dispatch => {
     return {
         addTodoItem: (text) => dispatch(addTodoItem(text)),
         deleteTodo: (id) => dispatch(deleteTodo(id)),
