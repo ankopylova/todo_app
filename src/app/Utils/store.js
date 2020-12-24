@@ -1,7 +1,10 @@
 import {applyMiddleware, createStore} from 'redux';
 import reducer from '../Reducers';
-import {save, load} from 'redux-localstorage-simple';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-export const store = createStore(reducer, load(), composeWithDevTools(applyMiddleware(save(), thunk)));
+const persistedState = localStorage.getItem("initialState") ? JSON.parse(localStorage.getItem("initialState")) : { list: [], activeFilter: "All" }
+export const store = createStore(reducer, persistedState, composeWithDevTools(applyMiddleware(thunk)));
+store.subscribe(()=> {
+    localStorage.setItem("initialState", JSON.stringify(store.getState()))
+})

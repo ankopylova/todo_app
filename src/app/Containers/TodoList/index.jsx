@@ -44,6 +44,11 @@ class TodoList extends React.Component {
         }
     }
 
+    componentDidMount() {
+
+    }
+
+
     render() {
         return (
             <div className="p-3 mx-auto block-size">
@@ -61,9 +66,9 @@ class TodoList extends React.Component {
                         <div className="block-size">
                             {this.filteredList().map(el =>
                                 <TodoItem text={el.text}
-                                       completed={el.completed}
-                                       onChange={() => this.props.completeTodo(el.id)}
-                                       onRemove={() => this.props.deleteTodo(el.id)}
+                                          completed={el.completed}
+                                          onChange={() => this.props.completeTodo(el.id)}
+                                          onRemove={() => this.props.deleteTodo(el.id)}
                                 />
                             )}
                         </div>
@@ -92,7 +97,7 @@ class TodoList extends React.Component {
 }
 
 
-const mapStateToProps = function (state) {
+const mapStateToProps = state => {
     return {
         list: state.list,
         activeFilter: state.activeFilter,

@@ -1,5 +1,7 @@
 import * as types from './constants'
 
+
+
 export const addTodoItem = text => (dispatch, getState) => {
     const newId = getState().list.map(el => el.id).length ? Math.max(...getState().list.map(el => el.id)) + 1 : 1;
     return dispatch({
@@ -11,6 +13,7 @@ export const addTodoItem = text => (dispatch, getState) => {
         },
     })
 }
+
 
 export const deleteTodo = id => (dispatch, getState) => {
     return dispatch({
