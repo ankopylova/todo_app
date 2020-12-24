@@ -44,11 +44,6 @@ class TodoList extends React.Component {
         }
     }
 
-    componentDidMount() {
-
-    }
-
-
     render() {
         return (
             <div className="p-3 mx-auto block-size">
@@ -76,7 +71,9 @@ class TodoList extends React.Component {
                     {
                         !!this.props.list.length &&
                         <div className="d-flex container p-3 block-size border-footer">
-                            <div onClick={() => this.props.completeAllTodos()} className="col-3 btn-sm text-btn">
+                            <div
+                                onClick={() => this.props.completeAllTodos()}
+                                className="col-3 btn-sm text-btn">
                                 {this.props.list.length - this.checkedListLength()} tasks left
                             </div>
                             <RadioBadge
@@ -96,13 +93,10 @@ class TodoList extends React.Component {
     }
 }
 
-
-const mapStateToProps = state => {
-    return {
-        list: state.list,
-        activeFilter: state.activeFilter,
-    }
-}
+const mapStateToProps = state => ({
+    list: state.list,
+    activeFilter: state.activeFilter,
+})
 
 const mapDispatchToProps = dispatch => {
     return {

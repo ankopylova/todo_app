@@ -1,7 +1,5 @@
 import * as types from './constants'
 
-
-
 export const addTodoItem = text => (dispatch, getState) => {
     const newId = getState().list.map(el => el.id).length ? Math.max(...getState().list.map(el => el.id)) + 1 : 1;
     return dispatch({
@@ -14,13 +12,12 @@ export const addTodoItem = text => (dispatch, getState) => {
     })
 }
 
-
 export const deleteTodo = id => (dispatch, getState) => {
     return dispatch({
         type: types.DELETE_TODO,
         payload: getState().list.filter(el => el.id !== id)
     })
-};
+}
 
 export const completeTodo = id => (dispatch, getState) => {
     return dispatch({
@@ -44,7 +41,6 @@ export const completeAllTodos = () => (dispatch, getState) => {
         payload: getState().list.map(el => !el.completed ? {...el, completed: true} : el)
     })
 }
-
 
 export const changeListFilter = filter => (dispatch) => {
     return dispatch({
