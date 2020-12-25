@@ -1,6 +1,13 @@
-.btn_radio{
+.btn_radio {
+    margin-right: 10px;
+    padding: 5px 5px 0 5px;
+}
+
+.btn_radio_select {
+    margin-right: 10px;
+    border-radius: 5px;
     background-color: #FFFFFF;
-    border: 1px #b1b1b1 solid;
-    margin: 0 0 5px 0;
+    border: 1px #cacaca solid;
+    padding: 5px;
 }
 

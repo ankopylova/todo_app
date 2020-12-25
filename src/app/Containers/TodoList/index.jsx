@@ -80,11 +80,11 @@ class TodoList extends React.Component {
                                 selected={this.props.activeFilter}/>
                             {
                                 this.checkedListLength() ?
-                                <div onClick={() => this.props.deleteAllCompletedTodos()}
-                                     className="d-flex col-4 btn-sm justify-content-end text-btn block-size">
+                                <div onClick={this.props.deleteAllCompletedTodos}
+                                     className="d-flex col-4 btn-sm text-btn block-size text-btn-complete">
                                     <span>Clear complete</span>
                                 </div> :
-                                <div className="d-flex col-4 btn-sm justify-content-end block-size">{""}</div>
+                                <div className="d-flex col-4 btn-sm block-size text-btn-complete">{""}</div>
                             }
                         </div>
                     }
