@@ -1,1 +1,1 @@
-export const index = ["All", "ToDo", "Completed"]
+export const filters = ["All", "ToDo", "Completed"]

@@ -18,6 +18,7 @@ const TodoItem = ({text, completed, onChange, onRemove}) => {
                     borderColor="#cccccc"
                     label={text}
                     labelClassName={cx("text", completed && "text todo-item-checked")}
+                    labelStyle={{marginBottom:0}}
                 />
             </div>
             <div className="col">
@@ -25,7 +26,7 @@ const TodoItem = ({text, completed, onChange, onRemove}) => {
                     className="d-flex justify-content-end trash"
                     onClick={onRemove}
                 >
-                    <FontAwesomeIcon icon={faTrashAlt}/>
+                    <FontAwesomeIcon icon={faTrashAlt} className="con"/>
                 </div>
             </div>
         </div>

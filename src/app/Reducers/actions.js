@@ -1,6 +1,7 @@
 import * as types from './constants'
 
 export const addTodoItem = text => (dispatch, getState) => {
+    if (text === "") return new Error("Err! Enter your task text!");
     const newId = getState().list.map(el => el.id).length ? Math.max(...getState().list.map(el => el.id)) + 1 : 1;
     return dispatch({
         type: types.ADD_TODO_ITEM,
@@ -31,7 +32,7 @@ export const completeTodo = id => (dispatch, getState) => {
 export const deleteAllCompletedTodos = () => (dispatch, getState) => {
     return dispatch({
         type: types.DELETE_ALL_COMPLETED,
-        payload: getState().list.filter(el => el.completed !== true)
+        payload: getState().list.filter(el => !el.completed)
     })
 }
 
