@@ -19,7 +19,11 @@ class TodoList extends React.Component {
         this.addNewTodo = this.addNewTodo.bind(this)
     }
 
-    checkedListLength = () => (this.props.list.filter(el => el.completed).length)
+    componentDidMount() {
+        this.props.getTodoItems()
+    }
+
+    checkedListLength = () => (this.props.list.payload.filter(el => el.completed).length);
 
     handleChangeTodoText(event) {
         this.setState({value: event.target.value});
@@ -32,15 +36,17 @@ class TodoList extends React.Component {
     }
 
     filteredList() {
+        const list = this.props.list.payload
         switch (this.props.activeFilter) {
             case "Completed":
-                return this.props.list.filter(e => e.completed)
+                return list.filter(e => e.completed)
             case "ToDo":
-                return this.props.list.filter(e => !e.completed)
+                return list.filter(e => !e.completed)
             default:
-                return this.props.list;
+                return list;
         }
     }
+
 
     render() {
         return (
@@ -60,19 +66,19 @@ class TodoList extends React.Component {
                             {this.filteredList().map(el =>
                                 <TodoItem text={el.text}
                                           completed={el.completed}
-                                          onChange={() => this.props.completeTodo(el.id)}
-                                          onRemove={() => this.props.deleteTodo(el.id)}
+                                          onChange={() => this.props.completeTodo(el._id)}
+                                          onRemove={() => this.props.deleteTodo(el._id)}
                                 />
                             )}
                         </div>
                     </section>
                     {
-                        !!this.props.list.length &&
+                        !!this.props.list.payload.length &&
                         <div className="d-flex container block-size border-footer">
                             <div
-                                onClick={() => this.props.completeAllTodos()}
+                                onClick={() => this.props.completeAllTodos(this.props.list.payload.filter(el => !el.completed))}
                                 className="col-3 btn-sm text-btn">
-                                {this.props.list.length - this.checkedListLength()} tasks left
+                                {this.props.list.payload.length - this.checkedListLength()} tasks left
                             </div>
                             <RadioBadge
                                 onChange={this.props.changeListFilter}
@@ -92,7 +98,9 @@ class TodoList extends React.Component {
             </div>
         )
     }
+
 }
+
 
 const mapStateToProps = state => ({
     list: state.list,
@@ -100,11 +108,12 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+    getTodoItems: () => dispatch(actions.getTodoItems()),
     addTodoItem: (text) => dispatch(actions.addTodoItem(text)),
     deleteTodo: (id) => dispatch(actions.deleteTodo(id)),
     completeTodo: (id) => dispatch(actions.completeTodo(id)),
     deleteAllCompletedTodos: () => dispatch(actions.deleteAllCompletedTodos()),
-    completeAllTodos: () => dispatch(actions.completeAllTodos()),
+    completeAllTodos: (idArr) => dispatch(actions.completeAllTodos(idArr)),
     changeListFilter: (filter) => dispatch(actions.changeListFilter(filter))
 })
 
